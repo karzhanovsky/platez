@@ -9,6 +9,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  font-family: 'Lato';
 }
 body > div {
   height: 100%;
@@ -18,12 +19,17 @@ body > div > div {
 }
 
 .wrap {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .splash-screen {
   height: 100%;
   position: relative;
+  background-image: url('/src/street3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-position: 50% 0;
 }
 
 .splash-screen > p {
@@ -32,14 +38,6 @@ body > div > div {
   padding: 15px;
   font-family: 'Lato';
   font-weight: 300;
-}
-
-.container {
-  background-image: url('/src/street3.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  background-position: 50% 0;
 }
 
 .logo {
@@ -168,5 +166,55 @@ body > div > div {
 }
 
 .single-plate {
-  display: inline-block;
+  height: 100%;
+  background-image: url('face.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-x:hidden;
+}
+
+.single-plate > h1 {
+  color: #fff;
+  width: 100%;
+  text-align: center;
+}
+
+.avatar {
+  margin: 25px auto;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #fff;
+  border-radius: 90px;
+}
+
+.single-plate > h2 {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 300;
+}
+
+.comments {
+
+}
+
+.comments > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.comments > ul > li {
+  background: #fff;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.comments > ul > li > span {
+  width: 100%;
+  display: block;
 }

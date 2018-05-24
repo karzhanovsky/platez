@@ -24,7 +24,7 @@ class SinglePlate extends Component {
     if (typeof this.props.profile === 'object') {
       return _.map(this.props.profile.comments, comment => {
         return (
-          <li key={comment}>{comment}</li>
+          <li key={comment}><span>Autor</span><p>{comment}</p><span>Likes</span></li>
         );
       })
     } else {
@@ -37,14 +37,16 @@ class SinglePlate extends Component {
       return (
         <div className="single-plate">
         <Link to='/'>Home</Link>
+          <div className="avatar"></div>
           <h1>{this.state.plate.toUpperCase()}</h1>
-          <div>
+          <h2>Marka pojazdu: Audi TT</h2>
+          <div className="comments">
             <h3>Comments</h3>
             <ul>
               {this.renderComments()}
             </ul>
           </div>
-          {this.props.user ? <AddComment plate={this.state.plate} /> : <p>You have to log in to comment</p>}
+          {this.props.user ? <AddComment plate={this.state.plate} /> : <p>Zaloguj się aby dodać komentarz</p>}
         </div>
       )
     }
