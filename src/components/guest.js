@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { auth } from '../firebase';
 
-class LoginForm extends Component {
+class Guest extends Component {
   constructor(props) {
     super(props);
 
@@ -36,7 +36,7 @@ class LoginForm extends Component {
   render() {
     let isInvalid = this.state.email === '' || this.state.password === ''
     return (
-      <div>
+      <div className="login-form">
         <h1>Log in</h1>
         <form onSubmit={this.onFormSubmit}>
           <input type="text" value={this.state.email} onChange={this.onEmailChange} placeholder="Email" />
@@ -48,4 +48,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+export default Guest;

@@ -22,9 +22,9 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit}>
-        <input type="text" value={this.state.term} onChange={this.onInputChange} placeholder="License plate lookup" />
-        <button type="submit">Search</button>
+      <form onSubmit={this.onFormSubmit} className="search-bar">
+        <input type="text" value={this.state.term} onChange={this.onInputChange} placeholder="Search..." />
+        <button type="submit">Submit</button>
       </form>
     )
   }

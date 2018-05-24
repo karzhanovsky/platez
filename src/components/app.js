@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CurrentUser from '../containers/current-user';
+import UserController from '../containers/user-controller';
 import SearchBar from './search-bar';
 import SinglePlate from './single-plate';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -8,7 +8,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <CurrentUser />
+        <UserController />
         <BrowserRouter>
           <Switch>
             <Route path='/plate/:id' component={SinglePlate} />

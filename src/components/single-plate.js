@@ -35,7 +35,7 @@ class SinglePlate extends Component {
   render() {
     if (!_.isEmpty(this.props.profile)) {
       return (
-        <div>
+        <div className="single-plate">
         <Link to='/'>Home</Link>
           <h1>{this.state.plate.toUpperCase()}</h1>
           <div>
