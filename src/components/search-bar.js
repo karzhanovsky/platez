@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      term: ''
+      term: '',
+      redirect: false
     }
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -17,15 +19,22 @@ class SearchBar extends Component {
   }
   onFormSubmit(event) {
     event.preventDefault();
-    this.props.history.push('/plate/' + this.state.term)
+    this.setState({redirect: true})
   }
 
   render() {
+
+    if(this.state.redirect === true) {
+      return <Redirect to={`/plate/${this.state.term}`} />
+    }
+
     return (
-      <form onSubmit={this.onFormSubmit} className="search-bar">
-        <input type="text" value={this.state.term} onChange={this.onInputChange} placeholder="Search..." />
-        <button type="submit">Submit</button>
-      </form>
+      <div className="search-bar">
+        <form onSubmit={this.onFormSubmit}>
+          <input type="text" value={this.state.term} onChange={this.onInputChange} placeholder="Numer tablicy..." />{'\n'}
+          <button type="submit">Szukaj</button>
+        </form>
+      </div>
     )
   }
 }

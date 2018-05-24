@@ -18,7 +18,6 @@ class UserController extends Component {
   sideNavHandler() {
     let sideNav = document.querySelector(".side-nav");
     let body = document.querySelector("body");
-    let navButton = document.querySelector(".nav-button");
     sideNav.style.marginLeft = "0";
     body.addEventListener("click", function() {
       if (!sideNav.contains(event.target)) {
@@ -29,12 +28,10 @@ class UserController extends Component {
 
   render() {
     return (
-      <div className="user-controller">
         <div className="side-nav">
           <button className="nav-button" onClick={this.sideNavHandler}></button>
         {this.props.user ? <LogoutForm /> : <Guest />}
         </div>
-      </div>
     )
   }
 }

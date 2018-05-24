@@ -17,15 +17,46 @@ body > div > div {
   height: 100%;
 }
 
-.user-controller {
-  width: 100%;
-  text-align: center;
+.wrap {
+  overflow: hidden;
+}
+
+.splash-screen {
   height: 100%;
-  display: block;
-  background-image: url('/src/street.jpg');
+  position: relative;
+}
+
+.splash-screen > p {
+  color: #fff;
+  font-size: 17px;
+  padding: 15px;
+  font-family: 'Lato';
+  font-weight: 300;
+}
+
+.container {
+  background-image: url('/src/street3.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
+  background-position: 50% 0;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  border: 9px solid #F07070;
+  border-radius: 90px;
+  margin: 58px auto;
+}
+
+.logo > h1 {
+  font-size: 78px !important;
+  position: relative;
+  left: -60px;
+  top: -20px;
+  color: #fff;
+  font-family: "PilGi";
 }
 
 .side-nav {
@@ -34,15 +65,16 @@ body > div > div {
   background: #fff;
   margin-left: -300px;
   transition: 0.3s all ease-out;
+  position: absolute;
+  z-index: 999;
 }
 
 .nav-button {
   position: absolute;
       top: 25px;
-      left: 25px;
+      left: 325px;
       width: 32px;
       height: 18px;
-      background: #fff;
       border: none;
       background: url('menu.png');
 }
@@ -53,20 +85,6 @@ body > div > div {
   width: 100%;
   position: relative;
 }
-
-/*.login-form:after {
-  content:'';
-  position: absolute;
-  top: 0;
-  left: 100%;
-  width: 32px;
-  height: 20px;
-  margin: 25px;
-  background-image: url('menu.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  cursor: pointer;
-}*/
 
 .login-form > h1 {
   font-family: Lato;
@@ -104,35 +122,49 @@ body > div > div {
 }
 
 .search-bar {
-  width: 400px;
-  display: inline-block;
-  margin: 20px 20px 20px 200px;
+    width: 100%;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.search-bar > input {
-  height: 30px;
+.search-bar > form {
   width: 200px;
-  border: 2px solid #bbb;
+  margin: 0 auto;
+}
+
+.search-bar > form > input {
+  height: 36px;
+  width: 200px;
+  border: 2px solid #fff;
   border-radius: 90px;
   font-family: Lato;
-  font-size: 16px;
   font-weight: 300;
-  text-align: center;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  background: none;
+  color: #fff;
+  font-size: 18px;
+  padding-left: 10px;
 }
 
-.search-bar > button {
-  height: 34px;
-    padding: 1px;
-    width: 57px;
-    display: inline-block;
-    margin: 0 0 0 10px;
-    border-radius: 90px;
-    font-family: Lato;
-    font-size: 16px;
-    font-weight: 300;
-    color: #fff;
-    background: #F07070;
-    border: none;
+.search-bar > form > input::placeholder {
+  color: #fff;
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+.search-bar > form > button {
+  color: #fff;
+  background: #AC2424;
+  border: 5px solid #fff;
+  border-radius: 90px;
+  width: 100px;
+  height: 100px;
+  margin: 25px auto;
+  font-size: 19px;
+  font-weight: 300;
 }
 
 .single-plate {
