@@ -11,8 +11,8 @@ export default class App extends Component {
         <UserController />
         <BrowserRouter>
           <Switch>
-            <Route path='/plate/:id' component={SinglePlate} />
-            <Route path='/' component={SplashScreen} />
+            <Route exact path='/plate/:id' component={SinglePlate} />
+            <Route exact path='/' component={SplashScreen} />
           </Switch>
         </BrowserRouter>
       </div>
