@@ -28,7 +28,7 @@ body > div > div {
   background-image: url('/src/street3.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  overflow: hidden;
+  overflow-x: hidden;
   background-position: 50% 0;
 }
 
@@ -49,12 +49,12 @@ body > div > div {
 }
 
 .logo > h1 {
-  font-size: 78px !important;
-  position: relative;
-  left: -60px;
-  top: -20px;
-  color: #fff;
-  font-family: "PilGi";
+  font-size: 60px !important;
+    position: relative;
+    left: -80px;
+    top: -5px;
+    color: #fff;
+    font-family: "Sarina";
 }
 
 .side-nav {
