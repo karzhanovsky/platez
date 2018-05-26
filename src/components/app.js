@@ -8,12 +8,14 @@ export default class App extends Component {
   render() {
     return (
       <div className="wrap">
-        <UserController />
         <BrowserRouter>
-          <Switch>
-            <Route exact path='/plate/:id' component={SinglePlate} />
-            <Route exact path='/' component={SplashScreen} />
-          </Switch>
+          <div>
+          <UserController />
+            <Switch>
+              <Route exact path='/plate/:id' component={SinglePlate} />
+              <Route exact path='/' component={SplashScreen} />
+            </Switch>
+          </div>
         </BrowserRouter>
       </div>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { auth } from '../firebase';
+import { Link } from 'react-router-dom';
 
 class Guest extends Component {
   constructor(props) {
@@ -37,12 +38,13 @@ class Guest extends Component {
     let isInvalid = this.state.email === '' || this.state.password === ''
     return (
       <div className="login-form">
-        <h1>Log in</h1>
+        <h1>Zaloguj</h1>
         <form onSubmit={this.onFormSubmit}>
-          <input type="text" value={this.state.email} onChange={this.onEmailChange} placeholder="Email" />
-          <input type="password" value={this.state.password} onChange={this.onPasswordChange} placeholder="Password" />
-          <button disabled={isInvalid} type="submit">Login</button>
+          <input type="email" value={this.state.email} onChange={this.onEmailChange} placeholder="Email" />
+          <input type="password" value={this.state.password} onChange={this.onPasswordChange} placeholder="Hasło" />
+          <button disabled={isInvalid} type="submit">Zaloguj</button>
         </form>
+        <h3>Nie masz jeszcze konta? <Link to='/zarejestruj'>Zarejestruj się tutaj</Link></h3>
       </div>
     )
   }
