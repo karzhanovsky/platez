@@ -27,11 +27,10 @@ class AddComment extends Component {
 
   render() {
     return (
-      <div>
-      Add a comment
+      <div className="add-comment">
         <form onSubmit={this.onFormSubmit}>
-          <input type="text" value={this.state.term} onChange={this.onInputChange} placeholder="Comment" />
-          <button type="submit">Submit</button>
+          <textarea value={this.state.term} onChange={this.onInputChange} placeholder="Dodaj komentarz..." />
+          <button type="submit">Dodaj</button>
         </form>
       </div>
     )

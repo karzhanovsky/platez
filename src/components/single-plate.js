@@ -36,7 +36,6 @@ class SinglePlate extends Component {
     if (!_.isEmpty(this.props.profile)) {
       return (
         <div className="single-plate">
-        <Link to='/'>Home</Link>
           <div className="avatar"></div>
           <h1>{this.state.plate.toUpperCase()}</h1>
           <h2>Marka pojazdu: Audi TT</h2>
