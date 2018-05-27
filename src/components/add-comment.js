@@ -23,6 +23,8 @@ class AddComment extends Component {
       timestamp: firebase.database.ServerValue.TIMESTAMP,
     });
     this.setState({term: ''});
+    let scrolledElement = document.querySelector('.comments');
+    scrolledElement.scrollTop = 0;
   }
   onInputChange(event) {
     this.setState({

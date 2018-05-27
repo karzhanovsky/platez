@@ -17,7 +17,7 @@ class RenderComments extends Component {
   }
 
   fetchComments(plate) {
-    db.ref(`/plates/${plate}/comments`).limitToLast(3).on('value', snapshot => {
+    db.ref(`/plates/${plate}/comments`).limitToLast(10).on('value', snapshot => {
       if (snapshot.exists()) {
         this.setState({
           comments: snapshot.val()
