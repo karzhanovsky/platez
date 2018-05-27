@@ -7,7 +7,7 @@ export function logIn(authUser) {
   };
 }
 
-export function fetchProfile(plate) {
+/*export function fetchProfile(plate) {
   return dispatch => {
     db.ref(`/plates/${plate}`).on('value', snapshot => {
       if (!snapshot.exists()) {
@@ -24,3 +24,22 @@ export function fetchProfile(plate) {
     });
   }
 }
+
+export function fetchComments(plate) {
+  return dispatch => {
+    db.ref(`/plates/${plate}`).on('value', snapshot => {
+      if (!snapshot.exists()) {
+        dispatch({
+          type: 'NO_PROFILE',
+          payload: "No profile yet"
+        });
+      } else {
+        dispatch({
+          type: 'PROFILE',
+          payload: snapshot.val()
+        });
+      }
+    });
+  }
+}
+*/

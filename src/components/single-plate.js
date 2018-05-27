@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { fetchProfile } from '../actions';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import _ from 'lodash';
 import { Link } from 'react-router-dom';
 import AddComment from './add-comment';
+import RenderComments from './render-comments';
 
 class SinglePlate extends Component {
 
@@ -16,39 +14,19 @@ class SinglePlate extends Component {
     }
   }
 
-  componentDidMount() {
-    this.props.fetchProfile(this.state.plate);
-  }
-
-  renderComments() {
-    if (typeof this.props.profile === 'object') {
-      return _.map(this.props.profile.comments, comment => {
-        return (
-          <li key={comment}><span>Autor</span><p>{comment}</p><span>Likes</span></li>
-        );
-      })
-    } else {
-      return <p>No comments yet. Be the first to comment!</p>
-    }
-  }
-
   render() {
-    if (!_.isEmpty(this.props.profile)) {
       return (
         <div className="single-plate">
           <div className="avatar"></div>
           <h1>{this.state.plate.toUpperCase()}</h1>
           <h2>Marka pojazdu: Audi TT</h2>
           <div className="comments">
-            <h3>Comments</h3>
-            <ul>
-              {this.renderComments()}
-            </ul>
+            <h3>Komentarze:</h3>
+            <RenderComments plate={this.state.plate} />
           </div>
           {this.props.user ? <AddComment plate={this.state.plate} /> : <p>Zaloguj się aby dodać komentarz</p>}
         </div>
       )
-    }
     return (
       <div>Loading...</div>
     )
@@ -57,13 +35,8 @@ class SinglePlate extends Component {
 
 function mapStateToProps(state) {
   return {
-    profile: state.profile,
     user: state.user
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchProfile: fetchProfile}, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SinglePlate);
+export default connect(mapStateToProps)(SinglePlate);

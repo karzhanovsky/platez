@@ -4,7 +4,7 @@ import ProfileReducer from './reducer_profile';
 
 const rootReducer = combineReducers({
   user: UserReducer,
-  profile: ProfileReducer
+  //profile: ProfileReducer
 });
 
 export default rootReducer;

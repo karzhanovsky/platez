@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { db } from '../firebase';
+import firebase from 'firebase';
 
 class AddComment extends Component {
   constructor(props) {
@@ -16,7 +17,11 @@ class AddComment extends Component {
 
   onFormSubmit(event) {
     event.preventDefault();
-    db.ref(`/plates/${this.state.plate}/comments`).push(this.state.term);
+    db.ref(`/plates/${this.state.plate}/comments`).push({
+      content: this.state.term,
+      author: 'Anonymous',
+      timestamp: firebase.database.ServerValue.TIMESTAMP,
+    });
     this.setState({term: ''});
   }
   onInputChange(event) {
@@ -30,7 +35,7 @@ class AddComment extends Component {
       <div className="add-comment">
         <form onSubmit={this.onFormSubmit}>
           <textarea value={this.state.term} onChange={this.onInputChange} placeholder="Dodaj komentarz..." />
-          <button type="submit">Dodaj</button>
+          <button type="submit">+</button>
         </form>
       </div>
     )
