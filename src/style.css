@@ -29,25 +29,26 @@ body > div > div {
 .splash-screen {
   height: 100%;
   position: relative;
-  background-image: url('/src/street.jpg');
+  /*background-image: url('/src/street.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;*/
   overflow-x: hidden;
   background-position: 50% 0;
 }
 
 .splash-screen > p {
-  color: #fff;
-  font-size: 17px;
-  padding: 15px;
-  font-family: 'Lato';
-  font-weight: 300;
+  color: #000;
+      text-align: left;
+      font-size: 18px;
+      font-family: 'Lato';
+      font-weight: 400;
+      padding: 10px 30px;
 }
 
 .logo {
   width: 150px;
   height: 150px;
-  border: 9px solid #F07070;
+  border: 9px solid #000;
   border-radius: 90px;
   margin: 58px auto;
 }
@@ -57,8 +58,24 @@ body > div > div {
     position: relative;
     left: -80px;
     top: -5px;
-    color: #fff;
+    color: rgb(247,82,100);
     font-family: "Sarina";
+}
+
+.icons {
+  width: 100%;
+  text-align: center;
+}
+
+.icons > div {
+  width: 33%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icons > div > img {
+  width: 50px;
 }
 
 .side-nav {
@@ -148,7 +165,7 @@ body > div > div {
 .search-bar > form > input {
   height: 45px;
     width: 75vw;
-    border: 2px solid #fff;
+    border: 2px solid rgb(247,82,100);
     border-radius: 90px;
     font-family: Lato;
     font-weight: 300;
@@ -156,13 +173,13 @@ body > div > div {
     margin: 50px 0;
     padding: 0;
     background: none;
-    color: #fff;
+    color: #000;
     font-size: 18px;
     padding-left: 10px;
 }
 
 .search-bar > form > input::placeholder {
-  color: #fff;
+  color: rgb(247,82,100);
   font-size: 18px;
   padding-left: 10px;
 }

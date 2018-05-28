@@ -27,6 +27,7 @@ class UserController extends Component {
   }
 
   render() {
+    console.log(this.props.user);
     return (
         <div className="side-nav">
           <button className="nav-button" onClick={this.sideNavHandler}></button>
