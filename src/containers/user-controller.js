@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { logIn } from '../actions';
 import { auth , firebase} from '../firebase';
+import { Redirect } from 'react-router';
 
 import Guest from '../components/guest';
 import LogoutForm from '../components/logout-form';
@@ -12,6 +13,8 @@ class UserController extends Component {
   componentDidMount() {
     firebase.auth.onAuthStateChanged(authUser => {
       this.props.logIn(authUser);
+      //return <Redirect to="/" />
+      console.log(authUser);
     });
   }
 
@@ -27,7 +30,7 @@ class UserController extends Component {
   }
 
   render() {
-    console.log(this.props.user);
+    //console.log(this.props.user);
     return (
         <div className="side-nav">
           <button className="nav-button" onClick={this.sideNavHandler}></button>
