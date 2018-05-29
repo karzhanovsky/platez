@@ -44,7 +44,7 @@ class Guest extends Component {
           <input type="password" value={this.state.password} onChange={this.onPasswordChange} placeholder="Hasło" />
           <button disabled={isInvalid} type="submit">Zaloguj</button>
         </form>
-        <h3>Nie masz jeszcze konta? <Link to='/zaloz-konto'>Zarejestruj się tutaj</Link></h3>
+        <h3>Nie masz jeszcze konta? <Link to={'/zaloz-konto'}>Zarejestruj się tutaj</Link></h3>
       </div>
     )
   }

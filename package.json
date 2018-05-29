@@ -2,19 +2,20 @@
   "name": "platez",
   "version": "1.0.0",
   "description": "platez",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": "git@github.com/karzhanovsky/platez.git",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "start": "webpack-dev-server --mode development",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --mode production"
   },
   "author": "karzhanovsky",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.2.1",
-    "babel-loader": "^6.2.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "chai": "^3.5.0",
@@ -22,8 +23,9 @@
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
-    "webpack": "^1.15.0",
-    "webpack-dev-server": "^1.14.0"
+    "webpack": "^4.10.0",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
     "babel-preset-stage-1": "^6.1.18",
