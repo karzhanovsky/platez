@@ -1,7 +1,7 @@
 import * as firebase from 'firebase';
 
 const config = {
-    apiKey: "AIzaSyBxFcWUISZrMNH0_3JmTq7ToItj0Ew1PFs",
+    apiKey: "*",
     authDomain: "tablice-4fce5.firebaseapp.com",
     databaseURL: "https://tablice-4fce5.firebaseio.com",
     projectId: "tablice-4fce5",
