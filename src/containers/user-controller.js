@@ -12,7 +12,6 @@ class UserController extends Component {
   componentDidMount() {
     firebase.auth.onAuthStateChanged(authUser => {
       this.props.logIn(authUser);
-      console.log(authUser);
     });
   }
 
