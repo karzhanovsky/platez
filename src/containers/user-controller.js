@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { logIn } from '../actions';
-import { auth , firebase} from '../firebase';
+import { logIn, fetchProfile } from '../actions';
+import { auth, db, firebase} from '../firebase';
 
 import Guest from '../components/guest';
 import LogoutForm from '../components/logout-form';
@@ -12,6 +12,9 @@ class UserController extends Component {
   componentDidMount() {
     firebase.auth.onAuthStateChanged(authUser => {
       this.props.logIn(authUser);
+      db.ref("/users").child(authUser.uid).once("value", snapshot => {
+        this.props.fetchProfile(snapshot.val());
+      })
     });
   }
 
@@ -38,12 +41,13 @@ class UserController extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    user: state.user,
+    userProfile: state.userProfile,
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({logIn:logIn}, dispatch)
+  return bindActionCreators({logIn:logIn, fetchProfile:fetchProfile}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserController);
