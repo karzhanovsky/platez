@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { auth, db } from '../firebase';
+import { auth, db, firebase } from '../firebase';
+import { Redirect } from 'react-router';
 
 class Register extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Register extends Component {
       username: '',
       avatarURL: '',
       usernameAvailable: true,
+      redirect: false,
     }
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -18,6 +20,16 @@ class Register extends Component {
     this.onPasswordChange = this.onPasswordChange.bind(this);
     this.onUsernameChange = this.onUsernameChange.bind(this);
     this.isUsernameAvailable = this.isUsernameAvailable.bind(this);
+  }
+
+  componentDidMount() {
+    firebase.auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          redirect: true,
+        })
+      }
+    })
   }
 
   onFormSubmit(event) {
@@ -80,6 +92,11 @@ class Register extends Component {
   }
 
   render() {
+    if (this.state.redirect === true) {
+      return (
+        <Redirect to="/" />
+      )
+    }
     return (
       <div className="register">
         <h1>Załóż konto</h1>

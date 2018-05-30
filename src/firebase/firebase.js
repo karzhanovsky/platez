@@ -19,4 +19,5 @@ const config = {
   export {
     auth,
     db,
+    firebase,
   };
