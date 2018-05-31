@@ -3,10 +3,11 @@ import { auth } from '../firebase';
 
 const LogoutForm = () =>
       <button
+      className="logout-button"
       type="submit"
       onClick={auth.doSignOut}
       >
-      Logout
+      Wyloguj
       </button>
 
 export default LogoutForm;

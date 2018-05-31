@@ -12,9 +12,11 @@ class UserController extends Component {
   componentDidMount() {
     firebase.auth.onAuthStateChanged(authUser => {
       this.props.logIn(authUser);
-      db.ref("/users").child(authUser.uid).once("value", snapshot => {
-        this.props.fetchProfile(snapshot.val());
-      })
+      if(authUser) {
+        db.ref("/users").child(authUser.uid).once("value", snapshot => {
+          this.props.fetchProfile(snapshot.val());
+        })
+      }
     });
   }
 

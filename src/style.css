@@ -151,6 +151,16 @@ padding: 10px 30px;
   font-weight: 300;
 }
 
+.logout-button {
+  background: rgb(247, 82, 100);
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    padding: 6px 10px;
+    margin: 10px;
+}
+
 .register {
   width: 100%;
   height: 100%;
@@ -192,6 +202,20 @@ border-radius: 10px;
 
 .usernameUnavailable {
   color: red;
+}
+
+.user-profile {
+  width: auto;
+  padding: 15px 25px;
+}
+
+.user-profile > h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.user-profile > h3 {
+  font-weight: 300;
 }
 
 .search-bar {
