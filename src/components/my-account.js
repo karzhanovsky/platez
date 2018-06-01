@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { db } from '../firebase';
 import LogoutForm from './logout-form';
 
 class MyAccount extends Component {
@@ -17,11 +15,4 @@ render() {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    user: state.user,
-    userProfile: state.userProfile
-  }
-}
-
-export default connect(mapStateToProps)(MyAccount);
+export default MyAccount;

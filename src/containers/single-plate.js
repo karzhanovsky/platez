@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import AddComment from './add-comment';
-import RenderComments from './render-comments';
+import AddComment from '../components/add-comment';
+import RenderComments from '../components/render-comments';
 
 class SinglePlate extends Component {
 

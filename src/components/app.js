@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import UserController from '../containers/user-controller';
 import SplashScreen from './splash-screen';
-import SinglePlate from './single-plate';
-import Account from './account';
+import SinglePlate from '../containers/single-plate';
+import Account from '../containers/account';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 export default class App extends Component {
