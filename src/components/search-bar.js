@@ -32,7 +32,7 @@ class SearchBar extends Component {
       <div className="search-bar">
         <form onSubmit={this.onFormSubmit}>
           <input type="text" value={this.state.term} onChange={this.onInputChange} placeholder="Numer tablicy..." />{'\n'}
-          <button type="submit">Szukaj</button>
+          <button className="btn btn-primary" type="submit">Szukaj</button>
         </form>
       </div>
     )

@@ -328,9 +328,18 @@ border-radius: 10px;
   background: rgba(255,255,255,0.5);
 }
 
+.comments > ul > li > a > img {
+  max-width: 100%;
+  background: #000;
+}
+
 .comments > ul > li > span {
   width: 100%;
   display: block;
+}
+
+.comments > ul > li > p {
+  word-break: break-all;
 }
 
 .add-comment {
@@ -341,24 +350,33 @@ border-radius: 10px;
 }
 
 .add-comment > form {
-  width: 92vw;
-  padding: 3% 4vw;
+  width: auto;
+  padding: 15px;
 }
 
 .add-comment > form > textarea {
-  width: 72vw;
-      margin: 0;
-      padding: 1vw 0 1vw 5vw;
-      border: none;
-      border-radius: 90px;
-      height: 10vw;
-      font-size: 16px;
-      display: inline-block;
-      vertical-align: middle;
+  width: 200px;
+    margin: 0;
+    padding: 5px 15px 5px 15px;
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: auto;
+    outline: none;
+    resize: none;
+}
+
+.add-comment > form > textarea:focus {
+  height: 60px;
 }
 
 .add-comment > form > textarea::placeholder {
-  line-height: 10vw;
+  line-height: 30px;
   font-family: 'Lato';
   font-weight: 300;
 }
@@ -366,14 +384,41 @@ border-radius: 10px;
 .add-comment > form > button {
   color: #fff;
       background: rgb(247,82,100);
-      width: 12vw;
-      height: 12vw;
-      margin: 0 0 0 3vw;
+      width: 50px;
+      height: 50px;
       padding: 0;
+      margin: 0 0 0 5px;
       font-size: 19px;
       font-weight: 300;
       border: none;
       display: inline-block;
       border-radius: 90px;
       vertical-align: middle;
+}
+
+.add-comment > form > .file-upload-label {
+  display: inline-block;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0 0 0 5px;
+    border: none;
+    border-radius: 90px;
+    background: url(clip.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+.add-comment > form > .file-upload-label > input {
+  display: none;
+}
+
+.add-comment > .imgThumbnail {
+  width: 40px;
+      height: 40px;
+      position: absolute;
+      top: -30px;
+      left: 15px;
+      border: 3px solid #fff;
 }

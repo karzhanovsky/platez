@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
 import { db } from '../firebase';
 
 class RenderComments extends Component {
@@ -30,7 +31,14 @@ class RenderComments extends Component {
     let sorted = Object.values(this.state.comments).reverse();
       return sorted.map(function(item) {
         return (
-          <li key={item.timestamp}><span>{item.author}</span><p>{item.content}</p><span>Likes</span></li>
+          <li key={item.timestamp}>
+            {item.imageUrl && <a href={item.imageUrl} target="_blank">
+              <img src={item.imageUrl} />
+            </a>}
+            <span>{item.author}</span>
+            <p>{item.content}</p>
+            <span>Likes</span>
+          </li>
         )
       })
   }
