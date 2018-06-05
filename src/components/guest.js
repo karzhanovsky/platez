@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { auth } from '../firebase';
 import { Link } from 'react-router-dom';
+import CreateAccount from './create-account.js'
 
 class Guest extends Component {
   constructor(props) {
@@ -8,12 +9,14 @@ class Guest extends Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      display: 'login',
     }
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.onEmailChange = this.onEmailChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
+    this.displayRegisterForm = this.displayRegisterForm.bind(this);
   }
 
   onFormSubmit(event) {
@@ -34,8 +37,19 @@ class Guest extends Component {
     })
   }
 
+  displayRegisterForm() {
+    this.setState({
+      display: 'register',
+    })
+  }
+
   render() {
     let isInvalid = this.state.email === '' || this.state.password === ''
+    if (this.state.display === 'register') {
+      return (
+        <CreateAccount />
+      )
+    } else {
     return (
       <div className="login-form">
         <h1>Zaloguj</h1>
@@ -44,9 +58,10 @@ class Guest extends Component {
           <input type="password" value={this.state.password} onChange={this.onPasswordChange} placeholder="Hasło" />
           <button disabled={isInvalid} type="submit">Zaloguj</button>
         </form>
-        <h3>Nie masz jeszcze konta? <Link to={'/konto'}>Zarejestruj się tutaj</Link></h3>
+        <h3>Nie masz jeszcze konta? <button onClick={this.displayRegisterForm}>Zarejestruj się tutaj</button></h3>
       </div>
     )
+  }
   }
 }
 

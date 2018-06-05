@@ -151,6 +151,11 @@ padding: 10px 30px;
   font-weight: 300;
 }
 
+.login-form > h3 > button {
+  color: blue;
+  font-size: 14px;
+}
+
 .logout-button {
   background: rgb(247, 82, 100);
     color: #fff;
@@ -364,6 +369,21 @@ border-radius: 10px;
 
 .comments > ul > li > p > .no-comments-span {
   font-size: 18px;
+}
+
+.log-in-to-comment {
+  color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.log-in-to-comment > a {
+  padding: 8px 15px;
+    margin: 0 10px;
+    background: rgb(247,82,100);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
 }
 
 .add-comment {

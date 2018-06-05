@@ -24,7 +24,7 @@ class SinglePlate extends Component {
             <h3>Komentarze:</h3>
             <RenderComments plate={this.state.plate} />
           </div>
-          {this.props.user ? <AddComment plate={this.state.plate} /> : <p>Zaloguj się aby dodać komentarz</p>}
+          {this.props.user ? <AddComment plate={this.state.plate} /> : <div className="log-in-to-comment">Zaloguj się aby dodać komentarz<Link to="/konto">Zaloguj</Link></div>}
         </div>
       )
     return (
