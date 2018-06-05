@@ -24,7 +24,9 @@ class RenderComments extends Component {
           comments: snapshot.val()
         })
       } else {
-        document.querySelector(".comments").innerHTML = "<h2>Brak komentarzy. Bądź pierwszy!</h2>";
+        this.setState({
+          comments: {123:{content: <span className="no-comments-span">Brak komentarzy. Bądź pierwszy!</span>, timestamp: new Date()}}
+        })
       }
   })
 }
@@ -39,7 +41,6 @@ class RenderComments extends Component {
             </a>}
             <span>{item.author}</span>
             <p>{item.content}</p>
-            <span>Likes</span>
           </li>
         )
       })
@@ -56,7 +57,7 @@ class RenderComments extends Component {
     return (
       <div>
         <h3>
-          Ładowanie komentarzy...
+          Ładowanie...
         </h3>
         <img src='src/loading-transparent.gif' />
       </div>
