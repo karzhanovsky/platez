@@ -74,6 +74,7 @@ class AddComment extends Component {
   }
 
   removeThumbnail() {
+    document.querySelector("#file-upload").value = null;
     this.setState({
       imageUrl: '',
     })

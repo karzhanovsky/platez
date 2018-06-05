@@ -304,6 +304,13 @@ border-radius: 10px;
   height: 44%;
 }
 
+.comments > h2 {
+  color: #fff;
+    font-size: 19px;
+    font-weight: 400;
+    text-align: center;
+}
+
 .comments > h3 {
   width: 100%;
     text-align: center;
@@ -311,6 +318,19 @@ border-radius: 10px;
     font-size: 26px;
     font-weight: 300;
     margin: 0;
+}
+
+.comments > div > h3 {
+  width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.comments > div > img {
+  margin-left: 49%;
 }
 
 .comments > ul {

@@ -23,6 +23,8 @@ class RenderComments extends Component {
         this.setState({
           comments: snapshot.val()
         })
+      } else {
+        document.querySelector(".comments").innerHTML = "<h2>Brak komentarzy. Bądź pierwszy!</h2>";
       }
   })
 }
@@ -52,7 +54,12 @@ class RenderComments extends Component {
       )
     }
     return (
-      <div>Ładowanie komentarzy...</div>
+      <div>
+        <h3>
+          Ładowanie komentarzy...
+        </h3>
+        <img src='src/loading-transparent.gif' />
+      </div>
     )
   }
 }
