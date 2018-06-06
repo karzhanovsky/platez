@@ -37,9 +37,8 @@ class RenderComments extends Component {
         return (
           <li key={item.timestamp}>
             <span>{item.author}</span>
-            {item.imageUrl && <a href={item.imageUrl} target="_blank">
-              <img src={item.imageUrl} />
-            </a>}
+            {item.imageUrl && <img src={item.imageUrl} />}
+            {item.videoUrl && <video controls src={item.videoUrl} />}
             <p>{item.content}</p>
           </li>
         )

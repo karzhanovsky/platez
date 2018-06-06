@@ -11,11 +11,12 @@ class AddComment extends Component {
     plate: this.props.plate,
     term: '',
     imageUrl: '',
+    videoUrl: '',
   }
 
   this.onFormSubmit = this.onFormSubmit.bind(this);
   this.onInputChange = this.onInputChange.bind(this);
-  this.imageResize = this.imageResize.bind(this);
+  this.handleFile = this.handleFile.bind(this);
   this.removeThumbnail = this.removeThumbnail.bind(this);
 }
 
@@ -29,10 +30,12 @@ class AddComment extends Component {
       author: 'Anonymous',
       timestamp: firebase.database.ServerValue.TIMESTAMP,
       imageUrl: this.state.imageUrl,
+      videoUrl: this.state.videoUrl,
     });
     this.setState({
       term: '',
       imageUrl: '',
+      videoUrl: '',
     });
     let scrolledElement = document.querySelector('.comments');
     scrolledElement.scrollTop = 0;
@@ -45,38 +48,83 @@ class AddComment extends Component {
     })
   }
 
-imageResize() {
+handleFile() {
   let file = document.querySelector("#file-upload").files[0];
-  let that = this;
   if (file.type == "image/jpeg" || file.type == "image/png") {
-    let reader = new FileReader();
-    reader.onload = function(readerEvent) {
-      let image = new Image();
-      image.onload = function(imageEvent) {
-        let max_size = 300;
-        let w = image.width;
-        let h = image.height;
+    this.setState({
+      imageUrl: 'src/loading.gif',
+    })
+    this.handleImage(file);
+  }
+  else if(file.type == "video/mp4") {
+    this.setState({
+      videoUrl: 'src/loading.gif',
+    })
+    this.handleVideo(file);
+  }
+}
 
-        if (w > h) {  if (w > max_size) { h*=max_size/w; w=max_size; }
-        } else     {  if (h > max_size) { w*=max_size/h; h=max_size; } }
-
-        let canvas = document.createElement('canvas');
-        canvas.width = w;
-        canvas.height = h;
-        canvas.getContext('2d').drawImage(image, 0, 0, w, h);
-
-        if (file.type == "image/jpeg") {
-          var dataURL = canvas.toDataURL("image/jpeg", 1.0);
-        } else {
-          var dataURL = canvas.toDataURL("image/png");
-        }
-        that.setState({
-          imageUrl: dataURL,
-        })
+handleImage(file) {
+  let that = this;
+  let reader = new FileReader();
+  reader.onload = function(readerEvent) {
+    let image = new Image();
+    image.onload = function(imageEvent) {
+      let max_size = 600;
+      let w = image.width;
+      let h = image.height;
+      if (w > h) {  if (w > max_size) { h*=max_size/w; w=max_size; }
+      } else     {  if (h > max_size) { w*=max_size/h; h=max_size; } }
+      let canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+      canvas.getContext('2d').drawImage(image, 0, 0, w, h);
+      if (file.type == "image/jpeg") {
+        var dataURL = canvas.toDataURL("image/jpeg", 1.0);
+        that.uploadToFirebase(dataURL, 'data_url');
+      } else {
+        var dataURL = canvas.toDataURL("image/png");
+        that.uploadToFirebase(dataURL, 'data_url');
       }
-      image.src = readerEvent.target.result;
     }
-    reader.readAsDataURL(file);
+    image.src = readerEvent.target.result;
+  }
+  reader.readAsDataURL(file);
+}
+
+handleVideo(file) {
+  let that = this;
+  var reader = new FileReader();
+  reader.onload = function(readerEvt) {
+    var binaryString = readerEvt.target.result;
+    let encodedVideo = btoa(binaryString);
+    that.uploadToFirebase(encodedVideo, 'base64')
+      };
+    reader.readAsBinaryString(file);
+}
+
+uploadToFirebase(file, type) {
+  let that = this;
+  if (type == 'data_url') {
+    let uploadTask = firebase.storage().ref().child("images/" + new Date()).putString(file, type);
+    uploadTask.on('state_changed', function(snapshot) {}, function(error){}, function() {
+      uploadTask.snapshot.ref.getDownloadURL()
+      .then(function(downloadURL) {
+        that.setState({
+          imageUrl: downloadURL,
+        })
+      })
+    })
+  } else if (type == 'base64') {
+    let uploadTask = firebase.storage().ref().child("videos/" + new Date()).putString(file, type);
+    uploadTask.on('state_changed', function(snapshot) {}, function(error){}, function() {
+      uploadTask.snapshot.ref.getDownloadURL()
+      .then(function(downloadURL) {
+        that.setState({
+          videoUrl: downloadURL,
+        })
+      })
+    })
   }
 }
 
@@ -84,6 +132,7 @@ imageResize() {
     document.querySelector("#file-upload").value = null;
     this.setState({
       imageUrl: '',
+      videoUrl: '',
     })
   }
 
@@ -94,6 +143,12 @@ render() {
         {this.state.imageUrl && <div className="comment-image-thumnail" onClick={this.removeThumbnail}>
           <img src={this.state.imageUrl} />
         </div>}
+        {this.state.videoUrl == 'src/loading.gif' && <div className="comment-image-thumnail" onClick={this.removeThumbnail}>
+          <img src={this.state.videoUrl} />
+        </div>}
+        {this.state.videoUrl && <div className="comment-image-thumnail" onClick={this.removeThumbnail}>
+          <video src={this.state.videoUrl} />
+        </div>}
         <textarea
         value={this.state.term}
         onChange={this.onInputChange}
@@ -103,8 +158,8 @@ render() {
           <input
           type="file"
           id="file-upload"
-          onChange={this.imageResize}
-          accept="image/*" />
+          onChange={this.handleFile}
+          accept="image/*, video/*" />
         </label>
         <button type="submit">+</button>
       </form>
