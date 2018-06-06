@@ -36,10 +36,10 @@ class RenderComments extends Component {
       return sorted.map(function(item) {
         return (
           <li key={item.timestamp}>
+            <span>{item.author}</span>
             {item.imageUrl && <a href={item.imageUrl} target="_blank">
               <img src={item.imageUrl} />
             </a>}
-            <span>{item.author}</span>
             <p>{item.content}</p>
           </li>
         )

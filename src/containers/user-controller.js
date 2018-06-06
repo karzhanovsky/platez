@@ -5,7 +5,7 @@ import { logIn, fetchProfile } from '../actions';
 import { auth, db, firebase} from '../firebase';
 
 import Guest from '../components/guest';
-import LogoutForm from '../components/logout-form';
+import Account from './account.js';
 
 class UserController extends Component {
 
@@ -35,7 +35,7 @@ class UserController extends Component {
     return (
         <div className="side-nav">
           <button className="nav-button" onClick={this.sideNavHandler}></button>
-        {this.props.user ? <LogoutForm /> : <Guest />}
+        {this.props.user ? <Account /> : <Guest />}
         </div>
     )
   }

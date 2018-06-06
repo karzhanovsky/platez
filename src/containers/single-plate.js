@@ -17,9 +17,7 @@ class SinglePlate extends Component {
   render() {
       return (
         <div className="single-plate">
-          <div className="avatar"></div>
           <h1>{this.state.plate.toUpperCase()}</h1>
-          <h2>Marka pojazdu: Audi TT</h2>
           <div className="comments">
             <h3>Komentarze:</h3>
             <RenderComments plate={this.state.plate} />

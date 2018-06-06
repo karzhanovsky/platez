@@ -286,14 +286,7 @@ border-radius: 10px;
   color: #fff;
   width: 100%;
   text-align: center;
-}
-
-.avatar {
-  margin: 25px auto;
-  width: 80px;
-  height: 80px;
-  border: 2px solid #fff;
-  border-radius: 90px;
+  margin: 10px 0;
 }
 
 .single-plate > h2 {
@@ -304,9 +297,9 @@ border-radius: 10px;
 }
 
 .comments {
-  padding: 20px 0 40px 0;
+  padding: 0;
   overflow: auto;
-  height: 44%;
+  height: 420px;
 }
 
 .comments > h2 {
@@ -361,6 +354,7 @@ border-radius: 10px;
 .comments > ul > li > span {
   width: 100%;
   display: block;
+  line-height: 25px;
 }
 
 .comments > ul > li > p {
@@ -406,17 +400,14 @@ border-radius: 10px;
     border: none;
     border-radius: 10px;
     height: 30px;
-    line-height: 30px;
+    line-height: 20px;
     font-size: 15px;
+    font-family: 'Lato';
     display: inline-block;
     vertical-align: middle;
     overflow: auto;
     outline: none;
     resize: none;
-}
-
-.add-comment > form > textarea:focus {
-  height: 60px;
 }
 
 .add-comment > form > textarea::placeholder {
