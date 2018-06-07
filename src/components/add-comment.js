@@ -49,7 +49,7 @@ class AddComment extends Component {
   }
 
 handleFile() {
-  let file = document.querySelector("#file-upload").files[0];
+  let file = document.querySelector("#image-upload").files[0];
   if (file.type == "image/jpeg" || file.type == "image/png") {
     this.setState({
       imageUrl: 'src/loading.gif',
@@ -129,7 +129,7 @@ uploadToFirebase(file, type) {
 }
 
   removeThumbnail() {
-    document.querySelector("#file-upload").value = null;
+    document.querySelector("#image-upload").value = null;
     this.setState({
       imageUrl: '',
       videoUrl: '',
@@ -154,14 +154,31 @@ render() {
         onChange={this.onInputChange}
         placeholder="Dodaj komentarz..."
         />
-        <label className="file-upload-label">
-          <input
-          type="file"
-          id="file-upload"
-          onChange={this.handleFile}
-          accept="image/*, video/*" />
-        </label>
-        <button type="submit">+</button>
+        <div className="add-comment-buttons">
+          <label className="image-upload-label">
+            <input
+            type="file"
+            id="image-upload"
+            onChange={this.handleFile}
+            accept="image/*" />
+          </label>
+          <label className="youtube-upload-label">
+            <input
+            type="file"
+            id="youtube-upload"
+            onChange={this.handleFile}
+            accept="video/*" />
+          </label>
+          <label className="video-upload-label">
+            <input
+            type="file"
+            id="video-upload"
+            onChange={this.handleFile}
+            accept="video/*" />
+          </label>
+        </div>
+        <button type="submit"></button>
+        <div style={{clear: "both"}}></div>
       </form>
     </div>
     )

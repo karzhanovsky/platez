@@ -6,6 +6,7 @@ import { auth, db, firebase} from '../firebase';
 
 import Guest from '../components/guest';
 import Account from './account.js';
+import Navigation from '../components/navigation.js';
 
 class UserController extends Component {
 
@@ -25,7 +26,7 @@ class UserController extends Component {
     let body = document.querySelector("body");
     sideNav.style.marginLeft = "0";
     body.addEventListener("click", function() {
-      if (!sideNav.contains(event.target)) {
+      if (!sideNav.contains(event.target) || event.target.className == "navi-link") {
         sideNav.style.marginLeft = "-300px"
       }
     })
@@ -36,6 +37,7 @@ class UserController extends Component {
         <div className="side-nav">
           <button className="nav-button" onClick={this.sideNavHandler}></button>
         {this.props.user ? <Account /> : <Guest />}
+        <Navigation />
         </div>
     )
   }
