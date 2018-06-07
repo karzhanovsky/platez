@@ -6,7 +6,8 @@ class MyAccount extends Component {
 render() {
     return (
       <div className="user-profile">
-        <h1>{this.props.userProfile.username}</h1>
+        <div className="avatar"></div>
+        <h1>@{this.props.userProfile.username}</h1>
         <h3>{this.props.userProfile.email}</h3>
         <LogoutForm />
       </div>
