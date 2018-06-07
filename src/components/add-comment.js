@@ -49,16 +49,25 @@ class AddComment extends Component {
   }
 
 handleFile() {
-  let file = document.querySelector("#image-upload").files[0];
+  var imageInput = document.querySelector("#image-upload").files[0];
+  var videoInput = document.querySelector("#video-upload").files[0];
+  var youtubeInput = document.querySelector("#youtube-upload").files[0];
+    if (imageInput) {
+      var file = imageInput;
+    } else if (videoInput) {
+      var file = videoInput;
+    } else if (youtubeInput) {
+      var file = youtubeInput;
+    }
   if (file.type == "image/jpeg" || file.type == "image/png") {
     this.setState({
-      imageUrl: 'src/loading.gif',
+      imageUrl: 'src/assets/loading.gif',
     })
     this.handleImage(file);
   }
   else if(file.type == "video/mp4") {
     this.setState({
-      videoUrl: 'src/loading.gif',
+      videoUrl: 'src/assets/loading.gif',
     })
     this.handleVideo(file);
   }
@@ -140,20 +149,12 @@ render() {
   return (
     <div className="add-comment">
       <form onSubmit={this.onFormSubmit}>
-        {this.state.imageUrl && <div className="comment-image-thumnail" onClick={this.removeThumbnail}>
-          <img src={this.state.imageUrl} />
-        </div>}
-        {this.state.videoUrl == 'src/loading.gif' && <div className="comment-image-thumnail" onClick={this.removeThumbnail}>
-          <img src={this.state.videoUrl} />
-        </div>}
-        {this.state.videoUrl && <div className="comment-image-thumnail" onClick={this.removeThumbnail}>
-          <video src={this.state.videoUrl} />
-        </div>}
         <textarea
         value={this.state.term}
         onChange={this.onInputChange}
         placeholder="Dodaj komentarz..."
         />
+        <button type="submit"></button>
         <div className="add-comment-buttons">
           <label className="image-upload-label">
             <input
@@ -162,13 +163,6 @@ render() {
             onChange={this.handleFile}
             accept="image/*" />
           </label>
-          <label className="youtube-upload-label">
-            <input
-            type="file"
-            id="youtube-upload"
-            onChange={this.handleFile}
-            accept="video/*" />
-          </label>
           <label className="video-upload-label">
             <input
             type="file"
@@ -176,9 +170,30 @@ render() {
             onChange={this.handleFile}
             accept="video/*" />
           </label>
+          <label className="youtube-upload-label">
+            <input
+            type="file"
+            id="youtube-upload"
+            onChange={this.handleFile}
+            accept="video/*" />
+          </label>
         </div>
-        <button type="submit"></button>
-        <div style={{clear: "both"}}></div>
+        {this.state.imageUrl &&
+        <div className="comment-image-thumnail" onClick={this.removeThumbnail}>
+          <img src={this.state.imageUrl} />
+        </div>}
+        {this.state.videoUrl &&
+        <div className="comment-image-thumnail" onClick={this.removeThumbnail}>
+          <video src={this.state.videoUrl} />
+        </div>}
+        {this.state.videoUrl == 'src/assets/loading.gif' &&
+        <div className="comment-image-thumnail" onClick={this.removeThumbnail}>
+          <img src={this.state.videoUrl} />
+        </div>}
+        {this.state.imageUrl == 'src/assets/loading.gif' &&
+        <div className="comment-image-thumnail" onClick={this.removeThumbnail}>
+          <img src={this.state.imageUrl} />
+        </div>}
       </form>
     </div>
     )
