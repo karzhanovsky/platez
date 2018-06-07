@@ -52,22 +52,27 @@ handleFile() {
   var imageInput = document.querySelector("#image-upload").files[0];
   var videoInput = document.querySelector("#video-upload").files[0];
   var youtubeInput = document.querySelector("#youtube-upload").files[0];
-    if (imageInput) {
+  console.log(imageInput);
+  console.log(videoInput);
+  console.log(youtubeInput);
+    if (document.querySelector("#image-upload").value.length > 0) {
       var file = imageInput;
-    } else if (videoInput) {
+    } else if (document.querySelector("#video-upload").value.length > 0) {
       var file = videoInput;
-    } else if (youtubeInput) {
+    } else if (document.querySelector("#youtube-upload").value.length > 0) {
       var file = youtubeInput;
     }
   if (file.type == "image/jpeg" || file.type == "image/png") {
     this.setState({
       imageUrl: 'src/assets/loading.gif',
+      videoUrl: '',
     })
     this.handleImage(file);
   }
   else if(file.type == "video/mp4") {
     this.setState({
       videoUrl: 'src/assets/loading.gif',
+      imageUrl: '',
     })
     this.handleVideo(file);
   }
@@ -112,7 +117,14 @@ handleVideo(file) {
     reader.readAsBinaryString(file);
 }
 
+resetInputFields() {
+  document.querySelector("#image-upload").value = '';
+  document.querySelector("#video-upload").value = '';
+  document.querySelector("#youtube-upload").value = '';
+}
+
 uploadToFirebase(file, type) {
+  this.resetInputFields();
   let that = this;
   if (type == 'data_url') {
     let uploadTask = firebase.storage().ref().child("images/" + new Date()).putString(file, type);
