@@ -58,7 +58,7 @@ class RenderComments extends Component {
         <h3>
           Ładowanie...
         </h3>
-        <img src='src/assets/loading-white.gif' />
+        <img src='src/assets/loading-horizontal.gif' />
       </div>
     )
   }

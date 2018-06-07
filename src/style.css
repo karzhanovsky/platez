@@ -30,18 +30,17 @@ body > div > div {
 }
 
 .splash-screen {
-  height: 75%;
+  height: 100%;
   position: relative;
-  /*background-image: url('/src/street.jpg');
-  background-size: cover;
+  background-image: url('/src/assets/background.jpg');
   background-repeat: no-repeat;
-  background-position: 50% 0;*/
+  background-position: 20%;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 .splash-screen > p {
-  color: #000;
+  color: #fff;
 text-align: left;
 font-size: 16px;
 font-family: 'Lato';
@@ -52,7 +51,7 @@ padding: 10px 30px;
 .logo {
   width: 100px;
     height: 100px;
-    border: 7px solid #000;
+    border: 7px solid #fff;
     border-radius: 90px;
     margin: 34px auto;
 }
@@ -321,11 +320,7 @@ border-radius: 10px;
   display: inline-block;
   margin: 0 auto;
   text-align: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  background: #fff;
 }
 
 .search-bar > form {
@@ -334,23 +329,25 @@ border-radius: 10px;
 }
 
 .search-bar > form > input {
-  height: 45px;
-    width: 75vw;
-    border: 2px solid rgb(247,82,100);
-    border-radius: 8px;
+  height: 46px;
+    width: 200px;
+    border: 2px solid #fff;
+    border-radius: 5px;
     font-family: Lato;
     font-weight: 300;
     text-align: left;
     margin: 25px 0;
     padding: 0;
     background: none;
-    color: #000;
+    color: #fff;
     font-size: 18px;
     padding-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .search-bar > form > input::placeholder {
-  color: rgb(247,82,100);
+  color: #fff;
   font-size: 18px;
   padding-left: 10px;
 }
@@ -358,12 +355,15 @@ border-radius: 10px;
 .search-bar > form > button {
   color: #fff;
   background: rgb(247,82,100);
-  width: 100%;
-  height: 45px;
-  margin: 0;
-  font-size: 19px;
+  width: 70px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 0 auto;
+  font-size: 16px;
   font-weight: 300;
   border: none;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .single-plate {
