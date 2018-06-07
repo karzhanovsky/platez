@@ -52,9 +52,6 @@ handleFile() {
   var imageInput = document.querySelector("#image-upload").files[0];
   var videoInput = document.querySelector("#video-upload").files[0];
   var youtubeInput = document.querySelector("#youtube-upload").files[0];
-  console.log(imageInput);
-  console.log(videoInput);
-  console.log(youtubeInput);
     if (document.querySelector("#image-upload").value.length > 0) {
       var file = imageInput;
     } else if (document.querySelector("#video-upload").value.length > 0) {

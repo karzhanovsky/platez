@@ -24,10 +24,15 @@ class UserController extends Component {
   sideNavHandler() {
     let sideNav = document.querySelector(".side-nav");
     let body = document.querySelector("body");
+    let overlay = document.querySelector("#overlay");
     sideNav.style.marginLeft = "0";
+    overlay.style.visibility = "visible";
+    overlay.style.opacity = 1;
     body.addEventListener("click", function() {
       if (!sideNav.contains(event.target) || event.target.className == "navi-link") {
-        sideNav.style.marginLeft = "-300px"
+        sideNav.style.marginLeft = "-200px";
+        overlay.style.visibility = "hidden";
+        overlay.style.opacity = 0;
       }
     })
   }

@@ -1,3 +1,6 @@
+* {
+  outline: none;
+}
 html {
   width: 100%;
   height: 100%;
@@ -23,10 +26,6 @@ body > div > div {
 }
 
 .wrap > div {
-  height: 100%;
-}
-
-.wrap > div > div {
   height: 100%;
 }
 
@@ -84,38 +83,83 @@ padding: 10px 30px;
 }
 
 .side-nav {
-  width: 300px;
+  width: 200px;
   height: 100%;
   background: #fff;
-  margin-left: -300px;
-  transition: 0.3s all ease-out;
+  margin-left: -200px;
+  transition: 0.2s all ease-out;
   position: absolute;
   z-index: 999;
 }
 
+#overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.6);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 9;
+  transition: 0.2s all ease-out;
+}
+
 .navigation > ul {
-  margin: 0 auto;
-    padding: 0;
-    width: 50%;
-    text-align: center;
-    list-style: none;
+  margin: 0 0 0 50px;
+  padding: 0;
+  text-align: center;
+  list-style: none;
+}
+
+.navigation > ul > li {
+  margin: 10px 0;
 }
 
 .navigation > ul > li > a {
   text-decoration: none;
-    font-size: 18px;
-    color: #000;
-    border: 1px solid #000;
-    border-radius: 10px;
-    padding: 5px 15px;
-    margin: 5px 0;
-    display: block;
+  font-size: 16px;
+  color: #000;
+  padding: 5px 0;
+  margin: 5px 0;
+  display: block;
+  text-align: left;
+  position: relative;
+}
+
+.navigation > ul > li > a:before {
+  content: '';
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: -40px;
+}
+
+.navigation > ul > li:first-child > a:before {
+  background: url('assets/search.png');
+  background-size: cover;
+}
+
+.navigation > ul > li:nth-child(2) > a:before {
+  background: url('assets/user.png');
+  background-size: cover;
+}
+
+.navigation > ul > li:nth-child(3) > a:before {
+  background: url('assets/user.png');
+  background-size: cover;
+}
+
+.navigation > ul > li:nth-child(4) > a:before {
+  background: url('assets/user.png');
+  background-size: cover;
 }
 
 .nav-button {
   position: absolute;
   top: 25px;
-  left: 325px;
+  left: 225px;
   width: 30px;
   height: 30px;
   border: none;
@@ -234,7 +278,7 @@ border-radius: 10px;
 
 .user-profile {
   width: auto;
-  padding: 15px 25px;
+  padding: 15px 5px;
 }
 
 .user-profile > h1 {
@@ -298,7 +342,8 @@ border-radius: 10px;
 
 .single-plate {
   height: 100%;
-  background-image: url('face.jpg');
+  background-image: url('assets/background.jpg');
+  background-position: 20%;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -321,9 +366,11 @@ border-radius: 10px;
 }
 
 .comments {
-  padding: 0;
+  padding: 0 0 20px 0;
   overflow: auto;
   height: 84%;
+  background: #fff;
+  margin: 0 20px;
 }
 
 .comments > div > h3 {
@@ -355,6 +402,16 @@ border-radius: 10px;
   background: #fff;
 }
 
+.comments > ul > li:after {
+  content: '';
+  width: 220px;
+  height: 1px;
+  background: #bbb;
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+}
+
 .comments > ul > li > img {
   max-width: 100%;
 }
@@ -373,10 +430,11 @@ border-radius: 10px;
 
 .comments > ul > li > p {
   word-break: break-all;
+  margin: 0;
 }
 
 .comments > ul > li > p > .no-comments-span {
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .log-in-to-comment {
@@ -401,14 +459,24 @@ border-radius: 10px;
 .add-comment > form {
   width: auto;
   padding: 15px;
-  margin: 15px;
+  margin: 15px 0;
   background: #fff;
   border-radius: 5px;
   position: relative;
 }
 
+.add-comment > form:after {
+  content: '';
+  width: 220px;
+  height: 1px;
+  background: #bbb;
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+}
+
 .add-comment > form > textarea {
-  width: 218px;
+  width: 208px;
     margin: 0 0 10px 0;
     padding: 5px 15px 5px 15px;
     background: #fff;

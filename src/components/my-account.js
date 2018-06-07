@@ -7,7 +7,7 @@ render() {
     return (
       <div className="user-profile">
         <h1>{this.props.userProfile.username}</h1>
-        <h3>Adres e-mail: {this.props.userProfile.email}</h3>
+        <h3>{this.props.userProfile.email}</h3>
         <LogoutForm />
       </div>
     )

@@ -12,6 +12,7 @@ export default class App extends Component {
         <BrowserRouter>
           <div>
           <UserController />
+          <div id="overlay"></div>
             <Switch>
               <Route exact path='/plate/:id' component={SinglePlate} />
               <Route exact path='/konto' component={Account} />
