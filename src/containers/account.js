@@ -6,7 +6,7 @@ import Guest from '../components/guest.js';
 class Account extends Component {
   render() {
     return (
-      this.props.user ? <MyAccount user={this.props.user} userProfile={this.props.userProfile} /> : <Guest />
+      this.props.user ? <MyAccount user={this.props.user} userProfile={this.props.userProfile} /> : <Guest register={this.props.register} />
     )
   }
 }

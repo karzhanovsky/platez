@@ -19,7 +19,14 @@ class SinglePlate extends Component {
         <div className="single-plate">
           <h1>{this.state.plate.toUpperCase()}</h1>
           <div className="comments">
-            {this.props.user ? <AddComment plate={this.state.plate} /> : <div className="log-in-to-comment">Zaloguj się aby dodać komentarz<Link to="/konto">Zaloguj</Link></div>}
+            {this.props.user ?
+              <AddComment plate={this.state.plate} /> :
+              <div className="log-in-to-comment">
+                <p>Zaloguj się aby dodać komentarz</p>
+                <Link to="/konto">
+                  Zaloguj
+                </Link>
+              </div>}
             <RenderComments plate={this.state.plate} />
           </div>
         </div>

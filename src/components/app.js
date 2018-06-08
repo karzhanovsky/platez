@@ -15,6 +15,7 @@ export default class App extends Component {
           <div id="overlay"></div>
             <Switch>
               <Route exact path='/plate/:id' component={SinglePlate} />
+              <Route exact path='/konto/zarejestruj' render={(props) => <Account {...props} register="true" />} />
               <Route exact path='/konto' component={Account} />
               <Route exact path='/' component={SplashScreen} />
             </Switch>

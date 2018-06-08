@@ -45,7 +45,7 @@ class Guest extends Component {
 
   render() {
     let isInvalid = this.state.email === '' || this.state.password === ''
-    if (this.state.display === 'register') {
+    if (this.props.register || this.state.display === 'register') {
       return (
         <CreateAccount />
       )
@@ -58,7 +58,10 @@ class Guest extends Component {
           <input type="password" value={this.state.password} onChange={this.onPasswordChange} placeholder="Hasło" />
           <button disabled={isInvalid} type="submit">Zaloguj</button>
         </form>
-        <h3>Nie masz jeszcze konta? <button onClick={this.displayRegisterForm}>Zarejestruj się tutaj</button></h3>
+        <div>
+          <h3 className="register-button">Nie masz jeszcze konta? <button onClick={this.displayRegisterForm}>Zarejestruj się</button></h3>
+          <h3 className="register-link">Nie masz jeszcze konta? <Link to={'/konto/zarejestruj'}>Zarejestruj się</Link></h3>
+        </div>
       </div>
     )
   }

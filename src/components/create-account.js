@@ -103,7 +103,7 @@ class CreateAccount extends Component {
           placeholder="Nazwa użytkownika"
           />
           {this.state.username.length > 0 &&
-            <p>
+            <p className="usernameAvailability">
             Nazwa {this.state.username} jest {this.state.usernameAvailable ?
             <span className="usernameAvailable">wolna</span> :
             <span className="usernameUnavailable">zajęta</span>}
