@@ -377,6 +377,18 @@ padding: 10px 30px;
   margin: 25px auto;
 }
 
+.register > form > .form-warn-email {
+  color: #fff;
+  padding: 5px 0 20px 0;
+  display: none;
+}
+
+.register > form > .form-warn-password {
+  color: #fff;
+  padding: 5px 0 20px 0;
+  display: none;
+}
+
 .register > form > input {
   width: 160px;
   height: 30px;

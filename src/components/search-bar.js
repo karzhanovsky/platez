@@ -14,8 +14,13 @@ class SearchBar extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
+  validateInput(input) {
+    let output = input.replace(/[^a-zA-Z0-9]/, '')
+    return output;
+  }
+
   onInputChange(event) {
-    this.setState({term: event.target.value.toUpperCase()})
+    this.setState({term: this.validateInput(event.target.value).toUpperCase()})
   }
   onFormSubmit(event) {
     event.preventDefault();
